@@ -1,27 +1,43 @@
 #include <iostream>
 #include <cmath>
 // Declaracion: Solo se coloca de que trtara la funcion. EJ: int muultiplicacion (int x, int y);
-//Definicion: De que tratara la funcion previamente declarada.
-//Variable Global: Afuera de cualquier funcion que se puede utilizar en cualquier otra operacion
-//Variable Local: Consume mas recursos 
+// Definicion: De que tratara la funcion previamente declarada.
+// Variable Global: Afuera de cualquier funcion que se puede utilizar en cualquier otra operacion
+// Variable Local: Consume mas recursos
+// Usa roundf cuando quieras redondear como en matemáticas normales.
+// Usa floorf si quieres siempre ir al piso.
+// Usa ceilf si quieres siempre ir al techo.
 
 const double kPi = 3.1416;
-//Declaracion
-float CalcularAreaCirculo (float radio);
+// Declaración
+float CalcularAreaCirculo(float radio, int CantidadDeDecimales);
 
-int main (void)
+int main(void)
 {
     float radio;
-    std :: cout <<"Ingrese el dato de su radio: \n";
-    std :: cin >> radio;
+    int decimales;
 
-    std :: cout <<"El area de su circulo es: " << CalcularAreaCirculo (radio);
+    std::cout << "Ingrese el dato de su radio: ";
+    std::cin >> radio;
+
+    std::cout << "Ingrese la cantidad de decimales que desea (1, 2 o 3): ";
+    std::cin >> decimales;
+
+    float area = CalcularAreaCirculo(radio, decimales);
+
+    std::cout << "El area de su circulo es: " << area << std::endl;
 
     return 0;
 }
 
-//Definicion
-float CalcularAreaCirculo (float radio)
+// Definición
+float CalcularAreaCirculo(float radio, int CantidadDeDecimales)
 {
-    return round (kPi * (radio * radio));
+    float area = kPi * (radio * radio);
+    float factor = pow(10, CantidadDeDecimales); // 10^decimales
+
+    // Redondeo al número de decimales deseado
+    float Redondeo = roundf(area * factor) / factor;
+
+    return Redondeo;
 }
