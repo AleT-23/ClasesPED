@@ -11,7 +11,7 @@ struct InformacionCupon
     std::string nombre_persona;
     std::vector<std::pair<std::string, std::string>> cupones_generados; 
    
-};
+}cupon;
 
 // Declaración
 std::string cupones_de_premio(std::string Letras);
@@ -21,7 +21,8 @@ std::string SolicitarDatos();
 int main()
 {
     srand(time(0));
-
+    std::vector<struct InformacionCupon> inf_cupones;
+ 
     InformacionCupon cupon;
 
     std::cout << "Ingresa el nombre de la persona: ";
