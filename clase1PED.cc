@@ -13,6 +13,7 @@ struct InformacionCupon
    
 }cupon;
 
+struct  InformacionCupon SolicitarDatosInformacion();
 // Declaración
 std::string cupones_de_premio(std::string Letras);
 std::string AsignarPremio(std::string cupon);
@@ -94,4 +95,24 @@ std::string SolicitarDatos()
     } while (prefijo.length() != 3);
 
     return prefijo;
+}
+struct  InformacionCupon SolicitarDatosInformacion()
+{
+    std::cout << "Ingresa el nombre de la persona: ";
+    std::cin >> cupon.nombre_persona;
+
+    std::cout << "Ingresa la cantidad de cupones que deseas generar: ";
+    std::cin >> cupon.cant_cupones;
+
+    for (int i = 0; i < cupon.cant_cupones; i++)
+    {
+        std::cout << "\n--- Generando cupon #" << (i+1) << " ---\n";
+        std::string letras = SolicitarDatos();
+        std::string cupon_generado = cupones_de_premio(letras);
+        std::string premio = AsignarPremio(cupon_generado);
+
+        
+        cupon.cupones_generados.push_back({cupon_generado, premio});
+    }
+    return cupon;
 }
