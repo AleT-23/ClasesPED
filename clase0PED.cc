@@ -17,15 +17,15 @@ int main(void)
     float radio;
     int decimales;
 
-    std::cout << "Ingrese el dato de su radio: ";
+    std::cout << "Ingrese el dato de su radio: \n";
     std::cin >> radio;
 
-    std::cout << "Ingrese la cantidad de decimales que desea (1, 2 o 3): ";
+    std::cout << "Ingrese la cantidad de decimales que desea (1, 2 o 3): \n";
     std::cin >> decimales;
 
     float area = CalcularAreaCirculo(radio, decimales);
 
-    std::cout << "El area de su circulo es: " << area << std::endl;
+    std::cout << "El area de su circulo es: " << area << "\n";
 
     return 0;
 }
@@ -34,9 +34,8 @@ int main(void)
 float CalcularAreaCirculo(float radio, int CantidadDeDecimales)
 {
     float area = kPi * (radio * radio);
-    float factor = pow(10, CantidadDeDecimales); // 10^decimales
+    float factor = pow(10, CantidadDeDecimales); 
 
-    // Redondeo al número de decimales deseado
     float Redondeo = roundf(area * factor) / factor;
 
     return Redondeo;

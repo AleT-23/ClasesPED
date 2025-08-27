@@ -11,7 +11,7 @@ struct InformacionCupon
     std::string nombre_persona;
     std::vector<std::pair<std::string, std::string>> cupones_generados; 
    
-}cupon;
+};
 
 struct  InformacionCupon SolicitarDatosInformacion();
 // Declaración
