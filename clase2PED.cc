@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-
+std::vector<struct Album> cancion;
 
 struct Album
 {
@@ -65,11 +65,15 @@ void ImprimirDatos(Cantante)
     std::cout <<"Datos de los albumnes y artistas que has ingresado.\n";
     std::cout <<"Cantante: " << c.nombre <<"\n";
     std::cout <<"Genero: " << c.genero <<"\n";
-    std::cout <<"Album: " << c.album.nombre <<"\n";
-    std::cout <<"Antiguedad del album: " <<c.album.anioLanzamiento <<"\n";
+    std::cout << "Album: " << c.album.nombre << "\n";
+    std::cout << "Anio de lanzamiento: " << c.album.anioLanzamiento << "\n";
+    std::cout << "Antiguedad del album: " << c.album.antiguedad << " anios" << "\n";
 
-
-
+    std::cout << "Canciones del album:\n";
+    for (const auto &song : c.album.canciones) {
+        cout << "  " << song.numero << ". " << song.titulo << "\n";
+    }
 }
+
 
 
