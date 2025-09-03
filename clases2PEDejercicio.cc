@@ -25,7 +25,7 @@ int calcularAntiguedad(int anioLanzamiento)
     return 2025 - anioLanzamiento;
 }
 
-Cantante solicitarDatos(int anioActual)
+Cantante solicitarDatos()
 {
     Cantante c;
 
@@ -98,7 +98,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         std::cout << "Registro \n" << i + 1;
-        Cantante artista = solicitarDatos(anioActual);
+        Cantante artista = solicitarDatos();
         registro.push_back(artista);
     }
 
