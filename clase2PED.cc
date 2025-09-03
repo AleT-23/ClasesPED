@@ -7,16 +7,16 @@ std::vector<struct Album> cancion;
 
 struct Album
 {
-    string nombre;
+    std::string nombre;
     int anioLanzamiento;
     int antiguedad;
-    vector<Cancion> canciones;
+    std::vector<Cancion> canciones;
 };
 
 struct Cantante
 {
-    string nombre;
-    string genero;
+    std::string nombre;
+    std::string genero;
     Album album;
 };
 
@@ -27,11 +27,12 @@ void ImprimirDatos();
 
 int main (void)
 {
-
+    solicitarDatos(c);
+    imprimirDatos(c);
     return 0;
 }
 
-
+//Definicion
 
 int calcularAntiguedad(int anio)
 {
