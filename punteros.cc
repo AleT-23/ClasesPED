@@ -13,15 +13,15 @@ int main()
 {
     int x = 10;
 
-    std::cout << "Valor inicial de x: " << x << "\n\n";
+    std::cout << "Valor inicial de x: " << x << "\n";
 
     // Paso por valor
     std::cout << "[Paso por valor] Nuevo valor: " << acumulador(x) << "\n";
-    std::cout << "Valor de x despues: " << x << "\n\n";
+    std::cout << "Valor de x despues: " << x << "\n";
 
     // Paso por referencia
     std::cout << "[Paso por referencia] Nuevo valor: " << acumuladorRef(x) << "\n";
-    std::cout << "Valor de x despues: " << x << "\n\n";
+    std::cout << "Valor de x despues: " << x << "\n";
 
     // Paso por puntero
     std::cout << "[Paso por puntero] Nuevo valor: " << acumuladorPtr(&x) << "\n";
