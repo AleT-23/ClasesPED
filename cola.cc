@@ -68,7 +68,7 @@ void Imprimir(std::queue<Persona> &cola)
         std::cout << "Tamaño actual de la cola: " << cola.size() << "\n";
         Persona frente = cola.front();
         std::cout << "Frente: \n Nombre:" << frente.nombre << "\nFecha" << frente.f_dia << " / " << frente.f_mes << " / " << frente.f_anio << "\n";
-        std::this_thread::sleep_for(std::chrono::seconds(3));
+        std::this_thread::sleep_for(std::chrono::seconds(3000));
         cola.pop();
     }
     std:: cout <<"Se han mostrado todos las personas de la cola.\n";
