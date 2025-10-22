@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm> 
+#include <algorithm>
 
 struct Luchador {
     std::string nombre;
@@ -15,28 +15,14 @@ void imprimirMasPesado(const std::vector<Luchador> &luchadores);
 int main() {
     std::vector<Luchador> luchadores;
     int n;
-
     std::cout << "¿Cuántos luchadores deseas ingresar? ";
     std::cin >> n;
-
     for (int i = 0; i < n; i++) {
-        Luchador peleador = ingresar();  
-        luchadores.push_back(peleador); 
+        Luchador peleador = ingresar();
+        luchadores.push_back(peleador);
     }
-
-    std::sort(luchadores.begin(), luchadores.end(),[](const Luchador &a, const Luchador &b)
-    {
-        return a.peso > b.peso;
-    });
-    for (auto peleador : luchadores)
-    {
-        /* code */
-    }
-    std::binary_search(luchadores.begin(), luchadores.end(),[](const Luchador &a, const Luchador &b)
-    {
-
-    });
-
+    ordenarPorPeso(luchadores);
+    imprimirMasPesado(luchadores);
     return 0;
 }
 
@@ -46,13 +32,15 @@ Luchador ingresar() {
     std::cin >> peleador.nombre;
     std::cout << "Peso en libras: ";
     std::cin >> peleador.peso;
-    return peleador;  
+    return peleador;
 }
 
 void ordenarPorPeso(std::vector<Luchador> &luchadores) {
-    std::sort(luchadores.begin(), luchadores.end() + luchadores.size());
-    std::binary_search(luchadores.begin(), luchadores.end() + luchadores.size(), 100);
+    std::sort(luchadores.begin(), luchadores.end(), [](const Luchador &a, const Luchador &b) {
+        return a.peso > b.peso;
+    });
 }
+
 void imprimirMasPesado(const std::vector<Luchador> &luchadores) {
     if (!luchadores.empty()) {
         const Luchador &masPesado = luchadores[0];
