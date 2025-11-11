@@ -3,7 +3,8 @@
 #include <string>
 #include <algorithm>
 
-struct Luchador {
+struct Luchador
+{
     std::string nombre;
     float peso;
 };
@@ -15,14 +16,16 @@ void imprimirMasPesado(const std::vector<Luchador> &luchadores);
 bool CompararPorPeso(const Luchador &a, const Luchador &b);
 void BuscarPorNombre(const std::vector<Luchador> &luchadores, const std::string &nombreBuscado);
 
-int main() {
+int main()
+{
     std::vector<Luchador> luchadores;
     int n;
     float peso_buscado;
     std::cout << "¿Cuántos luchadores deseas ingresar? ";
     std::cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         Luchador peleador = ingresar();
         luchadores.push_back(peleador);
     }
@@ -39,14 +42,18 @@ int main() {
 
     // Buscamos con find_if en lugar de binary_search para obtener el objeto encontrado
     auto it = std::find_if(luchadores.begin(), luchadores.end(),
-        [peso_buscado](const Luchador &l) {
-            return l.peso == peso_buscado;
-        });
+                           [peso_buscado](const Luchador &l)
+                           {
+                               return l.peso == peso_buscado;
+                           });
 
-    if (it != luchadores.end()) {
+    if (it != luchadores.end())
+    {
         std::cout << "Luchador encontrado: " << it->nombre
                   << " - Peso: " << it->peso << " lbs\n";
-    } else {
+    }
+    else
+    {
         std::cout << "No se encontró ningún luchador con ese peso.\n";
     }
 
@@ -61,7 +68,8 @@ int main() {
 
 // ---- FUNCIONES ----
 
-Luchador ingresar() {
+Luchador ingresar()
+{
     Luchador peleador;
     std::cout << "\nNombre del luchador: ";
     std::cin >> peleador.nombre;
@@ -70,31 +78,40 @@ Luchador ingresar() {
     return peleador;
 }
 
-bool CompararPorPeso(const Luchador &a, const Luchador &b) {
+bool CompararPorPeso(const Luchador &a, const Luchador &b)
+{
     return a.peso < b.peso; // Para orden ascendente
 }
 
-void ordenarPorPeso(std::vector<Luchador> &luchadores) {
+void ordenarPorPeso(std::vector<Luchador> &luchadores)
+{
     std::sort(luchadores.begin(), luchadores.end(),
-              [](const Luchador &a, const Luchador &b) {
+              [](const Luchador &a, const Luchador &b)
+              {
                   return a.peso > b.peso; // Orden descendente
               });
 }
 
-void imprimirMasPesado(const std::vector<Luchador> &luchadores) {
-    if (!luchadores.empty()) {
+void imprimirMasPesado(const std::vector<Luchador> &luchadores)
+{
+    if (!luchadores.empty())
+    {
         const Luchador &masPesado = luchadores[0];
         std::cout << "\nEl luchador más pesado es: " << masPesado.nombre
                   << " con " << masPesado.peso << " lbs\n";
-    } else {
+    }
+    else
+    {
         std::cout << "No hay luchadores registrados.\n";
     }
 }
 
 // ---- NUEVA FUNCIÓN: búsqueda lineal por nombre ----
-void BuscarPorNombre(const std::vector<Luchador> &luchadores, const std::string &nombreBuscado) {
+void BuscarPorNombre(const std::vector<Luchador> &luchadores, const std::string &nombreBuscado)
+{
     auto it = std::find_if(luchadores.begin(), luchadores.end(),
-                           [nombreBuscado](const Luchador &l) {
+                           [nombreBuscado](const Luchador &l)
+                           {
                                return l.nombre == nombreBuscado;
                            });
 
